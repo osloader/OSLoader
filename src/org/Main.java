@@ -11,12 +11,18 @@ import org.util.Condition;
 import org.util.Time;
 import org.web.LoginFrame;
 
+import de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel;
+
 public class Main {
 	
 	public Main(){
+		
 		final Config config = Config.getInstance();
 		
 		LoginFrame login = new LoginFrame();
+		login.pack();
+		login.setSize(450, 260);
+		login.setLocationRelativeTo(null);
 		login.setVisible(true);
 		new Thread(new Runnable() {
 			@Override
@@ -47,7 +53,7 @@ public class Main {
 
 	public static void main(String[] args)  {
 		try { 
-		    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		    UIManager.setLookAndFeel(new SyntheticaAluOxideLookAndFeel());
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}

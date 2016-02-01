@@ -6,12 +6,14 @@ import java.util.Hashtable;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
 
+
 public class RsJarLoader {
 
 
 	private Hashtable<String, byte[]> entries;
 	private Hashtable<String, Class<?>> classes;
 	private URL gamepackUrl;
+	private RsJarLoader classLoader = null;
 
 	public RsJarLoader(URL url) {
 		gamepackUrl = url;
@@ -47,5 +49,17 @@ public class RsJarLoader {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+
+	public Class<?> loadClass(final String className) throws ClassNotFoundException {
+		if (classLoader == null) {
+			System.out.println("Error Null Class Loader");
+			return null;
+		}
+		if(!classLoader.classes().containsKey(className)){
+			return classLoader.loadClass(className);
+		}
+		return classLoader.classes().get(className);
 	}
 }

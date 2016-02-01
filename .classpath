@@ -6,5 +6,8 @@
 	<classpathentry kind="lib" path="deps/alertify.jar"/>
 	<classpathentry kind="lib" path="deps/tween-engine-api.jar"/>
 	<classpathentry kind="lib" path="miglayout15-swing.jar" sourcepath="miglayout-src.zip"/>
+	<classpathentry kind="lib" path="/Bot/libs/asm-all-4.1.jar"/>
+	<classpathentry kind="lib" path="deps/synthetica.jar"/>
+	<classpathentry kind="lib" path="deps/syntheticaAluOxide.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
