@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 
 import org.client.Constants;
+import org.client.Keys;
 import org.nikkii.alertify4j.Alertify;
 import org.nikkii.alertify4j.AlertifyBuilder;
 import org.nikkii.alertify4j.AlertifyType;
@@ -114,7 +115,7 @@ public class LoginFrame extends JFrame {
 	}
 	
     private boolean attemptLogin(String username, String password) {
-        final String raw = NetUtil.readPage(org.client.Constants.SITE_URL + "/client/login.php?crypt=924197320&name=" + username.replaceAll(" ", "%20").replaceAll("\0", "") + "&pass=" + password)[0];
+        final String raw = NetUtil.readPage(org.client.Constants.SITE_URL + "/client/login.php?crypt=" + Keys.CRYPT + "&name=" + username.replaceAll(" ", "%20").replaceAll("\0", "") + "&pass=" + password)[0];
         if (raw.contains("FAILED") || raw.isEmpty()) {
             return false;
         } else if (raw.contains("TRUE4")) {
