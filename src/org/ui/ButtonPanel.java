@@ -33,9 +33,9 @@ public class ButtonPanel extends JPanel {
 		menu = new PopupMenu();
 		
 		add(Box.createHorizontalGlue());
-		settingsButton = new Buttons("settings.png");
-		settingsButton.setButtonHoverIcon("settings_hover.png");
-		settingsButton.setToolTipText("Display the client settings.");
+		settingsButton = new Buttons("link24.png");
+		settingsButton.setButtonHoverIcon("link24.png");
+		settingsButton.setToolTipText("Links to OSRS & OSL.");
 		settingsButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
