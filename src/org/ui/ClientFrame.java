@@ -27,7 +27,7 @@ public class ClientFrame extends JFrame implements WindowListener {
     private static String name = Constants.User.substring(0, 1).toUpperCase() + Constants.User.substring(1).toLowerCase();
     public ClientFrame() {
 
-        super(Constants.CLIENT_TITLE + " - [ " + Constants.Dev + " " + name + " ]");
+        super(Constants.CLIENT_TITLE + " - [" + Constants.Dev + " " + name + " ] Version: " + Constants.getCurrentVersion() + " Beta");
 
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setResizable(false);

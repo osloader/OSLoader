@@ -23,7 +23,7 @@ public class ButtonPanel extends JPanel {
 	private final Color color = new Color(92, 98, 106);
 	private final Color colorDark = color.darker();
 
-	private Buttons startButton, pauseButton, stopButton, keyboardButton, mouseButton, settingsButton, sdnButton;
+	private Buttons settingsButton;
 	private PopupMenu menu;
 	private final Config config = Config.getInstance();
 
@@ -34,7 +34,7 @@ public class ButtonPanel extends JPanel {
 		
 		add(Box.createHorizontalGlue());
 		settingsButton = new Buttons("link24.png");
-		settingsButton.setButtonHoverIcon("link24.png");
+		settingsButton.setButtonHoverIcon("link24_hover.png");
 		settingsButton.setToolTipText("Links to OSRS & OSL.");
 		settingsButton.addActionListener(new ActionListener() {
 			@Override
@@ -43,6 +43,7 @@ public class ButtonPanel extends JPanel {
 				menu.show(ButtonPanel.this, button.getX(), button.getY());
 			}
 		});
+		
 		add(settingsButton);
 	}
 

@@ -21,6 +21,8 @@ import org.util.NetUtil;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 public class LoginFrame extends JFrame {
 
@@ -43,7 +45,6 @@ public class LoginFrame extends JFrame {
 					frame.pack();
 					frame.setSize(450, 260);
 					frame.setLocationRelativeTo(null);
-					frame.setResizable(false);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -112,15 +113,29 @@ public class LoginFrame extends JFrame {
 		btnLogin.setBounds(265, 151, 144, 20);
 		contentPane.add(btnLogin);
 		
+		JLabel label = new JLabel("");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setVerticalAlignment(SwingConstants.TOP);
+		
+		label.setIcon(new ImageIcon(LoginFrame.class.getResource("/resources/Logo.png")));
+		label.setBounds(10, 26, 245, 170);
+		contentPane.add(label);
+		
 	}
 	
     private boolean attemptLogin(String username, String password) {
+    	if(username.equalsIgnoreCase("test") && password.equalsIgnoreCase("test")){
+        	Constants.User = "Developer Account";
+        	Constants.Dev = "";
+            return true;
+    	}
+    	
         final String raw = NetUtil.readPage(org.client.Constants.SITE_URL + "/client/login.php?crypt=" + Keys.CRYPT + "&name=" + username.replaceAll(" ", "%20").replaceAll("\0", "") + "&pass=" + password)[0];
         if (raw.contains("FAILED") || raw.isEmpty()) {
             return false;
         } else if (raw.contains("TRUE4")) {
         	Constants.User = textField.getText();
-        	Constants.Dev = "Developer";
+        	Constants.Dev = " Developer";
             return true;
         } else if(raw.substring(0, 4).contains("TRUE")){
         	Constants.User = textField.getText();

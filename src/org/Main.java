@@ -23,6 +23,7 @@ public class Main {
 		login.pack();
 		login.setSize(450, 260);
 		login.setLocationRelativeTo(null);
+		login.setResizable(false);
 		login.setVisible(true);
 		new Thread(new Runnable() {
 			@Override
