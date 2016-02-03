@@ -19,7 +19,7 @@ public class Main {
 		
 		final Config config = Config.getInstance();
 		
-		LoginFrame login = new LoginFrame();
+		/**LoginFrame login = new LoginFrame();
 		login.pack();
 		login.setSize(450, 260);
 		login.setLocationRelativeTo(null);
@@ -41,7 +41,7 @@ public class Main {
 		
 		while (login.isVisible()) {
 			Utilities.sleep(200, 300);
-		}
+		}**/ //TODO When OSLoader website is bought re-add forum login
 		
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
