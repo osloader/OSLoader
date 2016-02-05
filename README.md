@@ -2,7 +2,7 @@
 
 ## Introduction
 
-OSLoader is an Open Source Client used to play Old School Runescape. 
+OSLoader is an Open Source Client used to play Old School Runescape. Currently our website is hosted [HERE](https://osloader.github.io).
 
 ## Reporting issues and contributing
 
@@ -10,7 +10,7 @@ If you find any bugs or have any suggestion for improvement, please
 file an issue at https://github.com/osloader/OSLoader/issues.
 
 If you want you contribute, please submit a [Pull
-Request](https://github.com/osloader/OSLoader/pulls).
+Request](https://github.com/osloader/OSLoader/pulls). 
 
 ## Maintainers and Contributors
 
