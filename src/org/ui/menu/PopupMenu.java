@@ -1,4 +1,4 @@
-package org.ui;
+package org.ui.menu;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package org.ui;
+package org.ui.menu;
 
 import java.awt.Dimension;
 import java.awt.Image;

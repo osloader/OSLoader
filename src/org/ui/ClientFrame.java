@@ -12,6 +12,7 @@ import javax.swing.WindowConstants;
 import org.client.Config;
 import org.client.Constants;
 import org.client.loader.RSLoader;
+import org.ui.menu.ButtonPanel;
 import org.util.Utilities;
 
 public class ClientFrame extends JFrame implements WindowListener {
