@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Image;
 
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
@@ -21,6 +22,9 @@ import org.util.NetUtil;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
@@ -31,8 +35,10 @@ public class LoginFrame extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField txtTest;
 	private JPasswordField passwordField;
+	
+	
 
 	/**
 	 * Launch the application.
@@ -57,6 +63,14 @@ public class LoginFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginFrame() {
+		
+        final List<Image> icons = new ArrayList<Image>();
+        icons.add(Constants.icon256);
+        icons.add(Constants.icon128);
+        icons.add(Constants.icon64);
+        icons.add(Constants.icon32);
+        icons.add(Constants.icon16);
+        
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 260);
@@ -65,15 +79,17 @@ public class LoginFrame extends JFrame {
 		contentPane.setBorder(null);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+        setIconImages(icons);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Arial", Font.PLAIN, 11));
-		textField.setBounds(265, 62, 144, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtTest = new JTextField();
+		txtTest.setText("test");
+		txtTest.setFont(new Font("Arial", Font.PLAIN, 11));
+		txtTest.setBounds(265, 62, 144, 20);
+		contentPane.add(txtTest);
+		txtTest.setColumns(10);
 		
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setLabelFor(textField);
+		lblUsername.setLabelFor(txtTest);
 		lblUsername.setFont(new Font("Arial", Font.PLAIN, 11));
 		lblUsername.setBounds(265, 37, 122, 14);
 		contentPane.add(lblUsername);
@@ -86,6 +102,7 @@ public class LoginFrame extends JFrame {
 		
 		passwordField = new JPasswordField();
 		lblPassword.setLabelFor(passwordField);
+		passwordField.setText("test");
 		passwordField.setBounds(265, 117, 144, 20);
 		contentPane.add(passwordField);
 		
@@ -96,7 +113,7 @@ public class LoginFrame extends JFrame {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String username = textField.getText().replaceAll(" ", "%20");
+				String username = txtTest.getText().replaceAll(" ", "%20");
                 String password = new String(passwordField.getPassword());
                 if (!attemptLogin(username, password)) {
                 	Alertify.show(new AlertifyBuilder()
@@ -117,8 +134,8 @@ public class LoginFrame extends JFrame {
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setVerticalAlignment(SwingConstants.TOP);
 		
-		label.setIcon(new ImageIcon(LoginFrame.class.getResource("/resources/Logo.png")));
-		label.setBounds(10, 26, 245, 170);
+		label.setIcon(new ImageIcon(LoginFrame.class.getResource("/resources/logo@128x128.png")));
+		label.setBounds(70, 43, 130, 130);
 		contentPane.add(label);
 		
 	}
@@ -134,11 +151,11 @@ public class LoginFrame extends JFrame {
         if (raw.contains("FAILED") || raw.isEmpty()) {
             return false;
         } else if (raw.contains("TRUE4")) {
-        	Constants.User = textField.getText();
+        	Constants.User = txtTest.getText();
         	Constants.Dev = " Developer";
             return true;
         } else if(raw.substring(0, 4).contains("TRUE")){
-        	Constants.User = textField.getText();
+        	Constants.User = txtTest.getText();
         	Constants.Dev = "";
         	return true;
         }

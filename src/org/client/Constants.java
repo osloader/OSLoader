@@ -1,9 +1,12 @@
 package org.client;
 
+import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+
+import org.util.Utilities;
 
 
 public class Constants {
@@ -45,6 +48,17 @@ public class Constants {
 	public static String = "";
 	public static String = "";
 	public static String = "";**/
+	
+	
+	/**
+	 * Images
+	 * **/
+	
+	public final static Image icon256 = Utilities.getLocalImage("/resources/logo@256x256.png");
+	public final static Image icon128 = Utilities.getLocalImage("/resources/logo@128x128.png");
+	public final static Image icon64 = Utilities.getLocalImage("/resources/logo@64x64.png");
+	public final static Image icon32 = Utilities.getLocalImage("/resources/logo@32x32.png");
+	public final static Image icon16 = Utilities.getLocalImage("/resources/logo@16x16.png");
 	
 	public static final int[] WORLDS = {301, 302, 303, 304, 305, 306, 308, 309, 310,
 		311, 312, 313, 314, 316, 317, 318, 319, 320, 321, 322, 326, 327, 328, 329, 330,

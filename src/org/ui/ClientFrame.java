@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -25,10 +28,10 @@ public class ClientFrame extends JFrame implements WindowListener {
     private final RSLoader loader;
     private final ButtonPanel buttonPanel;
     private Config configuration = Config.getInstance();
-    //TODO private static String name = Constants.User.substring(0, 1).toUpperCase() + Constants.User.substring(1).toLowerCase();
-    public ClientFrame() {
+    private static String name = Constants.User.substring(0, 1).toUpperCase() + Constants.User.substring(1).toLowerCase();
+	public ClientFrame() {
 
-        super("[ " + Constants.CLIENT_TITLE + /*" - [" + Constants.Dev + " " + name + */" ] Version: " + Constants.getCurrentVersion() + " Beta");
+        super(Constants.CLIENT_TITLE + " - [" + Constants.Dev + " " + name + " ] Version: " + Constants.getCurrentVersion() + " Beta");
 
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -40,11 +43,16 @@ public class ClientFrame extends JFrame implements WindowListener {
         this.loader = new RSLoader(configuration);
         this.getContentPane().add(loader);
 
-        //final Image iconImage = Utilities.getLocalImage("");
+        final List<Image> icons = new ArrayList<Image>();
+        icons.add(Constants.icon256);
+        icons.add(Constants.icon128);
+        icons.add(Constants.icon64);
+        icons.add(Constants.icon32);
+        icons.add(Constants.icon16);
 
         this.addWindowListener(this);
         this.setLocationRelativeTo(getParent());
-       // this.setIconImage(iconImage);
+        this.setIconImages(icons);
         this.pack();
         this.setLocationRelativeTo(getOwner());
     }

@@ -12,7 +12,7 @@ public class Config {
 	
 	public ClientFrame getclientFrame() {
 		if (clientframe == null)
-			System.out.println("botFrame isn't set!");
+			System.out.println("Client Frame isn't set!");
 		return clientframe;
 	}
 
