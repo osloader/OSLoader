@@ -2,6 +2,7 @@ package org.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
@@ -10,8 +11,11 @@ import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
+import org.Main;
 import org.client.Config;
 import org.client.Constants;
 import org.client.loader.RSLoader;
@@ -33,7 +37,7 @@ public class ClientFrame extends JFrame implements WindowListener {
 
         super(Constants.CLIENT_TITLE + " - [" + Constants.Dev + " " + name + " ] Version: " + Constants.getCurrentVersion() + " Beta");
 
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setResizable(false);
         this.getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
@@ -55,13 +59,23 @@ public class ClientFrame extends JFrame implements WindowListener {
         this.setIconImages(icons);
         this.pack();
         this.setLocationRelativeTo(getOwner());
+        confirmOnClose();
     }
 
 
     public RSLoader loader() {
         return loader;
     }
-
+	public void confirmOnClose(){
+		this.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				int result = JOptionPane.showConfirmDialog(new JLabel("", JLabel.CENTER),"Are you sure you want to close OSLoader?.");
+				if (result == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+	}
     @Override
     public void windowOpened(WindowEvent e) {
 

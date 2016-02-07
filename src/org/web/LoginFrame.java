@@ -134,7 +134,7 @@ public class LoginFrame extends JFrame {
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setVerticalAlignment(SwingConstants.TOP);
 		
-		label.setIcon(new ImageIcon(LoginFrame.class.getResource("/resources/logo@128x128.png")));
+		label.setIcon(new ImageIcon(LoginFrame.class.getResource("/resources/logo/logo@128x128.png")));
 		label.setBounds(70, 43, 130, 130);
 		contentPane.add(label);
 		
