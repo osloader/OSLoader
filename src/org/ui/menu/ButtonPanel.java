@@ -23,7 +23,7 @@ public class ButtonPanel extends JPanel {
 	private final Color color = new Color(92, 98, 106);
 	private final Color colorDark = color.darker();
 
-	private Buttons settingsButton;
+	private Buttons mapButton, linkButton, statsButton;
 	private PopupMenu menu;
 	private final Config config = Config.getInstance();
 
@@ -33,10 +33,10 @@ public class ButtonPanel extends JPanel {
 		menu = new PopupMenu();
 		
 		add(Box.createHorizontalGlue());
-		settingsButton = new Buttons("link24.png");
-		settingsButton.setButtonHoverIcon("link24_hover.png");
-		settingsButton.setToolTipText("Links to OSRS & OSL.");
-		settingsButton.addActionListener(new ActionListener() {
+		linkButton = new Buttons("link24.png");
+		linkButton.setButtonHoverIcon("link24_hover.png");
+		linkButton.setToolTipText("Links to OSRS & OSL.");
+		linkButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				final JButton button = (JButton) e.getSource();
@@ -44,7 +44,33 @@ public class ButtonPanel extends JPanel {
 			}
 		});
 		
-		add(settingsButton);
+		add(linkButton);
+		
+		mapButton = new Buttons("map24.png");
+		mapButton.setButtonHoverIcon("map24-hover.png");
+		mapButton.setToolTipText("OSRS World Map.");
+		mapButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				final JButton button = (JButton) e.getSource();
+				menu.show(ButtonPanel.this, button.getX(), button.getY());
+			}
+		});
+		
+		add(mapButton);
+		
+		statsButton = new Buttons("stats24.png");
+		statsButton.setButtonHoverIcon("stats24-hover.png");
+		statsButton.setToolTipText("OSRS HiScore searcher.");
+		statsButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				final JButton button = (JButton) e.getSource();
+				menu.show(ButtonPanel.this, button.getX(), button.getY());
+			}
+		});
+		
+		add(statsButton);
 	}
 
 	@Override
