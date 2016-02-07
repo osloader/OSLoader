@@ -1,5 +1,6 @@
 package org;
 
+import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -24,7 +25,8 @@ public class Main {
 		
 		final Config config = Config.getInstance();
 		
-		LoginFrame login = new LoginFrame();
+		LoginFrame login = new LoginFrame();	
+		login.setMinimumSize(new Dimension(450, 260));
 		login.pack();
 		login.setSize(450, 260);
 		login.setLocationRelativeTo(null);
