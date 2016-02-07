@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import org.client.Config;
 import org.ui.hs.HiscoresForm;
+import org.ui.map.MapFrame;
 
 public class ButtonPanel extends JPanel {
 
@@ -54,8 +55,11 @@ public class ButtonPanel extends JPanel {
 		mapButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				final JButton button = (JButton) e.getSource();
-				menu.show(ButtonPanel.this, button.getX(), button.getY());
+				try {
+					//JFrame map = new MapFrame();
+					//map.setVisible(true);
+				} catch (Exception e1)  {
+				}
 			}
 		});
 		

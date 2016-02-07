@@ -1,7 +1,12 @@
 package org.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -38,7 +43,6 @@ public class ClientFrame extends JFrame implements WindowListener {
         super(Constants.CLIENT_TITLE + " - [" + Constants.Dev + " " + name + " ] Version: " + Constants.getCurrentVersion() + " Beta");
 
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-        this.setResizable(false);
         this.getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
         this.buttonPanel = new ButtonPanel();
@@ -60,8 +64,8 @@ public class ClientFrame extends JFrame implements WindowListener {
         this.pack();
         this.setLocationRelativeTo(getOwner());
         confirmOnClose();
+        this.setResizable(true);
     }
-
 
     public RSLoader loader() {
         return loader;
@@ -69,7 +73,7 @@ public class ClientFrame extends JFrame implements WindowListener {
 	public void confirmOnClose(){
 		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
-				int result = JOptionPane.showConfirmDialog(new JLabel("", JLabel.CENTER),"Are you sure you want to close OSLoader?.");
+				int result = JOptionPane.showConfirmDialog(new JLabel("", JLabel.CENTER),"Are you sure you want to close OSLoader?");
 				if (result == JOptionPane.YES_OPTION) {
 					System.exit(0);
 				}

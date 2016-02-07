@@ -22,7 +22,7 @@ class HiscoresLookup {
     public HiscoresLookup(String username, boolean isRS3) {
         String page = "";
         try {
-            page = Utilities.downloadString(isRS3 ? Constants.RS_HISCORES_URL + username : Constants.OLDSCHOOL_HISCORES_URL + username, true);
+            page = Utilities.downloadString(isRS3 ? Constants.RS3_HISCORES_URL + username : Constants.OLDSCHOOL_HISCORES_URL + username, true);
         } catch (IOException exception) {
             exception.printStackTrace();
             String[] options = new String[]{"OK"};

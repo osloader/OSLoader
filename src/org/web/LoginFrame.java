@@ -147,7 +147,7 @@ public class LoginFrame extends JFrame {
             return true;
     	}
     	
-        final String raw = NetUtil.readPage(org.client.Constants.SITE_URL + "/client/login.php?crypt=" + Keys.crypt + "&name=" + username.replaceAll(" ", "%20").replaceAll("\0", "") + "&pass=" + password)[0];
+        final String raw = NetUtil.readPage(org.client.Constants.SITE_URL + "/client/login.php?crypt=" + Keys.CRYPT + "&name=" + username.replaceAll(" ", "%20").replaceAll("\0", "") + "&pass=" + password)[0];
         if (raw.contains("FAILED") || raw.isEmpty()) {
             return false;
         } else if (raw.contains("TRUE4")) {

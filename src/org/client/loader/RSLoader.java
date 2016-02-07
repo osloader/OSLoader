@@ -112,7 +112,7 @@ public class RSLoader extends JPanel implements AppletStub {
 					graphics2D.drawString("Downloading gamepack - " + downloader.getPercentage() + "%", 285, 230);
 				}
 				graphics.setColor(Color.GREEN.darker());
-				graphics2D.drawString("LiquidBot is loading, please wait!", 285, 480);
+				graphics2D.drawString("OSLoader is loading, please wait!", 285, 480);
 			}
 			repaint(600);
 		}
