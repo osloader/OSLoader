@@ -3,6 +3,7 @@ package org.ui.hs;
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 
+import org.client.Config;
 import org.ui.hs.VerticalFlowLayout;
 
 import java.awt.*;
@@ -204,6 +205,7 @@ public class HiscoresForm extends JFrame {
                                 .addGap(4, 4, 4))
         );
         setSize(585, 480);
+        this.setIconImages(Config.icons());
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }

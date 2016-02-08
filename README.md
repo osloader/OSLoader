@@ -4,6 +4,11 @@
 
 OSLoader is an Open Source Client used to play Old School Runescape. Currently our website is hosted [here.](https://osloader.github.io).
 
+## Things to know
+
+If cloning the repo, I have a gitignore on a Keys file. In order for OSL to run when contributing, 
+you'll need to create a Keys.java file in the org.client package with a public static string named CRYPT.
+
 ## Reporting issues and contributing
 
 If you find any bugs or have any suggestion for improvement, please

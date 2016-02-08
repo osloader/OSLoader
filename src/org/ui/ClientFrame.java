@@ -1,16 +1,10 @@
 package org.ui;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.RenderingHints;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,13 +13,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
-
-import org.Main;
 import org.client.Config;
 import org.client.Constants;
 import org.client.loader.RSLoader;
 import org.ui.menu.ButtonPanel;
-import org.util.Utilities;
 
 public class ClientFrame extends JFrame implements WindowListener {
 
@@ -50,17 +41,10 @@ public class ClientFrame extends JFrame implements WindowListener {
         
         this.loader = new RSLoader(configuration);
         this.getContentPane().add(loader);
-
-        final List<Image> icons = new ArrayList<Image>();
-        icons.add(Constants.icon256);
-        icons.add(Constants.icon128);
-        icons.add(Constants.icon64);
-        icons.add(Constants.icon32);
-        icons.add(Constants.icon16);
-
+        
         this.addWindowListener(this);
         this.setLocationRelativeTo(getParent());
-        this.setIconImages(icons);
+        this.setIconImages(Config.icons());
         this.pack();
         this.setLocationRelativeTo(getOwner());
         confirmOnClose();

@@ -36,8 +36,8 @@ public class ButtonPanel extends JPanel {
 		menu = new PopupMenu();
 		
 		add(Box.createHorizontalGlue());
-		linkButton = new Buttons("link24.png");
-		linkButton.setButtonHoverIcon("link24_hover.png");
+		linkButton = new Buttons("buttons/link24.png");
+		linkButton.setButtonHoverIcon("buttons/link24_hover.png");
 		linkButton.setToolTipText("Links to OSRS & OSL.");
 		linkButton.addActionListener(new ActionListener() {
 			@Override
@@ -49,8 +49,8 @@ public class ButtonPanel extends JPanel {
 		
 		add(linkButton);
 		
-		mapButton = new Buttons("map24.png");
-		mapButton.setButtonHoverIcon("map24-hover.png");
+		mapButton = new Buttons("buttons/map24.png");
+		mapButton.setButtonHoverIcon("buttons/map24-hover.png");
 		mapButton.setToolTipText("OSRS World Map.");
 		mapButton.addActionListener(new ActionListener() {
 			@Override
@@ -65,8 +65,8 @@ public class ButtonPanel extends JPanel {
 		
 		add(mapButton);
 		
-		statsButton = new Buttons("stats24.png");
-		statsButton.setButtonHoverIcon("stats24-hover.png");
+		statsButton = new Buttons("buttons/stats24.png");
+		statsButton.setButtonHoverIcon("buttons/stats24-hover.png");
 		statsButton.setToolTipText("OSRS HiScore searcher.");
 		statsButton.addActionListener(new ActionListener() {
 			@Override
