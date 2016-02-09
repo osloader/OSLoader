@@ -19,10 +19,15 @@ class HiscoresLookup {
             "Runecrafting", "Hunter", "Construction", "Summoning", "Dungeoneering", "Divination"};
     private final Map<Integer, Skill> skillMap = new LinkedHashMap<>();
 
-    public HiscoresLookup(String username, boolean isRS3) {
+    public HiscoresLookup(String username, boolean isRS3, boolean  isIron) {
         String page = "";
         try {
-            page = Utilities.downloadString(isRS3 ? Constants.RS3_HISCORES_URL + username : Constants.OLDSCHOOL_HISCORES_URL + username, true);
+        	if (isIron){
+        		page = Utilities.downloadString(isRS3 ? Constants.RS3_HISCORES_IRON + username : Constants.OLDSCHOOL_HISCORES_IRON + username, true);
+        	} else {
+        		page = Utilities.downloadString(isRS3 ? Constants.RS3_HISCORES_URL + username : Constants.OLDSCHOOL_HISCORES_URL + username, true);
+        	}
+            
         } catch (IOException exception) {
             exception.printStackTrace();
             String[] options = new String[]{"OK"};

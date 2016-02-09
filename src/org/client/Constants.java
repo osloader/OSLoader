@@ -47,7 +47,9 @@ public class Constants {
 	
     public static final String RS3_HISCORES_URL = "http://services.runescape.com/m=hiscore/index_lite.ws?player=";
     public static final String OLDSCHOOL_HISCORES_URL = "http://services.runescape.com/m=hiscore_oldschool/index_lite.ws?player=";
-    
+    public static final String RS3_HISCORES_IRON = "http://services.runescape.com/m=hiscore_ironman/index_lite.ws?player=";
+    public static final String OLDSCHOOL_HISCORES_IRON = "http://services.runescape.com/m=hiscore_oldschool_ironman/index_lite.ws?player=";
+ 
 	
 	
 	/**

@@ -10,13 +10,20 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 /**
  * Created by Kenneth on 6/15/2014.
  */
 public class HiscoresForm extends JFrame {
 
-    private final DecimalFormat decimalFormat = new DecimalFormat("###,###,###,###");
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private final DecimalFormat decimalFormat = new DecimalFormat("###,###,###,###");
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - asdf asdf
@@ -26,17 +33,17 @@ public class HiscoresForm extends JFrame {
     private JLabel label2;
     private JPanel panel1;
     private JLabel label3;
+    private JCheckBox chckbxIronman;
 
     public HiscoresForm() {
         super("Player Stats Lookup");
-        getContentPane().setLayout(new VerticalFlowLayout());
         initComponents();
-        //setVisible(true);
+        setVisible(true);
     }
 
     private void btnActionEvent() {
         panel1.removeAll();
-        HiscoresLookup lookup = new HiscoresLookup(textField1.getText(), !checkBox1.isSelected());
+        HiscoresLookup lookup = new HiscoresLookup(textField1.getText(), !checkBox1.isSelected(), chckbxIronman.isSelected());
         label1.setText(textField1.getText());
         setTitle("Player Stats Lookup - " + textField1.getText());
         panel1.setLayout(new VerticalFlowLayout());
@@ -102,6 +109,7 @@ public class HiscoresForm extends JFrame {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - asdf asdf
         textField1 = new JTextField();
+        textField1.setBounds(59, 56, 113, 20);
         textField1.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -111,13 +119,19 @@ public class HiscoresForm extends JFrame {
             }
         });
         checkBox1 = new JCheckBox();
+        checkBox1.setBounds(10, 66, 71, 23);
         checkBox1.setSelected(true);
         label1 = new JLabel();
+        label1.setBounds(141, 99, 100, 14);
         label2 = new JLabel();
+        label2.setBounds(141, 119, 0, 0);
         JButton button1 = new JButton();
+        button1.setBounds(59, 48, 113, 23);
         button1.addActionListener(listener -> btnActionEvent());
         panel1 = new JPanel();
+        panel1.setBounds(10, 148, 549, 290);
         label3 = new JLabel();
+        label3.setBounds(294, 11, 265, 126);
 
         //======== this ========
         Container contentPane = getContentPane();
@@ -156,54 +170,58 @@ public class HiscoresForm extends JFrame {
         //---- label3 ----
         label3.setIcon(new ImageIcon(Utilities.getImage(Utilities.getContentDirectory() + "resources/skills/default banner.png")));
         label3.setHorizontalAlignment(SwingConstants.CENTER);
+        getContentPane().setLayout(null);
+        
+        chckbxIronman = new JCheckBox();
+        chckbxIronman.setBounds(10, 66, 97, 23);
+        chckbxIronman.setText("Ironman?");
+        getContentPane().add(chckbxIronman);
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
-        contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
-                contentPaneLayout.createParallelGroup()
-                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                        .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(contentPaneLayout.createSequentialGroup()
-                                                .addGroup(contentPaneLayout.createParallelGroup()
-                                                        .addComponent(textField1, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(contentPaneLayout.createSequentialGroup()
-                                                                .addGap(9, 9, 9)
-                                                                .addComponent(checkBox1, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE))
-                                                        .addComponent(button1, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(contentPaneLayout.createParallelGroup()
-                                                        .addComponent(label2)
-                                                        .addComponent(label1, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
-                                                .addGap(53, 53, 53)
-                                                .addComponent(label3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addContainerGap())
+        	contentPaneLayout.createParallelGroup(Alignment.TRAILING)
+        		.addGroup(contentPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addGroup(contentPaneLayout.createParallelGroup(Alignment.TRAILING)
+        				.addComponent(panel1, GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)
+        				.addGroup(contentPaneLayout.createSequentialGroup()
+        					.addGroup(contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(contentPaneLayout.createSequentialGroup()
+        							.addComponent(button1, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
+        							.addGap(18)
+        							.addGroup(contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(label2)
+        								.addComponent(label1, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
+        						.addComponent(textField1, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(checkBox1, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE))
+        					.addGap(53)
+        					.addComponent(label3, GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)))
+        			.addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
-                contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                                .addGroup(contentPaneLayout.createParallelGroup()
-                                        .addGroup(contentPaneLayout.createSequentialGroup()
-                                                .addGap(17, 17, 17)
-                                                .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                                        .addGroup(contentPaneLayout.createSequentialGroup()
-                                                                .addComponent(label1)
-                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(label2))
-                                                        .addGroup(contentPaneLayout.createSequentialGroup()
-                                                                .addComponent(textField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(checkBox1)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(button1))))
-                                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addComponent(label3, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(4, 4, 4))
+        	contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(contentPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addGroup(contentPaneLayout.createParallelGroup(Alignment.LEADING, false)
+        				.addGroup(contentPaneLayout.createSequentialGroup()
+        					.addGroup(contentPaneLayout.createParallelGroup(Alignment.TRAILING)
+        						.addGroup(contentPaneLayout.createSequentialGroup()
+        							.addComponent(label1)
+        							.addPreferredGap(ComponentPlacement.RELATED)
+        							.addComponent(label2))
+        						.addComponent(label3, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
+        					.addPreferredGap(ComponentPlacement.UNRELATED))
+        				.addGroup(contentPaneLayout.createSequentialGroup()
+        					.addComponent(textField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        					.addPreferredGap(ComponentPlacement.UNRELATED)
+        					.addComponent(checkBox1)
+        					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        					.addComponent(button1)
+        					.addGap(28)))
+        			.addComponent(panel1, GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+        			.addGap(4))
         );
+        contentPane.setLayout(contentPaneLayout);
         setSize(585, 480);
         this.setIconImages(Config.icons());
         setLocationRelativeTo(getOwner());
