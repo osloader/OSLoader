@@ -22,7 +22,7 @@ public class PopupMenu  extends JPopupMenu implements ActionListener {
 	 */
 	private static final long serialVersionUID = -5639231076995913638L;
 	private final JMenu oslinks, osllinks;
-	private final JCheckBoxMenuItem  osrsforums, osrshome, oslforums, oslgithub, oslissues;
+	private final JCheckBoxMenuItem  osrsforums, osrshome, osrswiki, oslforums, oslgithub, oslissues;
 	//private final JMenuItem ;
 	private final Config config = Config.getInstance();
 
@@ -36,8 +36,12 @@ public class PopupMenu  extends JPopupMenu implements ActionListener {
 		osrshome = new JCheckBoxMenuItem("OSRS Homepage");
 		osrshome.addActionListener(this);
 		
+		osrswiki = new JCheckBoxMenuItem("OSRS Wiki");
+		osrswiki.addActionListener(this);
+		
 		oslinks.add(osrshome);
 		oslinks.add(osrsforums);
+		oslinks.add(osrswiki);
 		
 		add(oslinks);
 		
@@ -68,6 +72,12 @@ public class PopupMenu  extends JPopupMenu implements ActionListener {
 		} else if (e.getSource() == osrsforums) {
 			try{
 				java.awt.Desktop.getDesktop().browse(java.net.URI.create(Constants.OSRS_FORUM));
+			}catch (Exception e1){
+				System.out.println(e1);
+			}
+		} else if (e.getSource() == osrswiki) {
+			try{
+				java.awt.Desktop.getDesktop().browse(java.net.URI.create(Constants.OSRS_WIKI));
 			}catch (Exception e1){
 				System.out.println(e1);
 			}
